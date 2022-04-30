@@ -123,9 +123,12 @@ Console.ReadKey();
 
 ## Reference
 -----------
-https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
-https://github.com/Azure/DotNetty/tree/dev/src/DotNetty.Codecs.Mqtt
-https://github.com/dotnet/MQTTnet
-https://github.com/linfx/MqttFx
+[OASIS](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
+
+[Azure DotNetty Mqtt Codec](https://github.com/Azure/DotNetty/tree/dev/src/DotNetty.Codecs.Mqtt)
+
+[MQTTnet](https://github.com/dotnet/MQTTnet)
+
+[MqttFx](https://github.com/linfx/MqttFx)
 
 Special thanks are hereby given to the above projects.
