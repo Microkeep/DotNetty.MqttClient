@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace DotNetty.Codec.Mqtt.Packets;
 
 /// <summary>

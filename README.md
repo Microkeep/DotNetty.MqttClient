@@ -31,9 +31,7 @@ A lightweight and efficient MQTT client based on [DotNetty](https://github.com/A
 -----------
 ```csharp
 //init
-var loggerFactory = LoggerFactory.Create(x => x.AddConsole());
-var logger = loggerFactory.CreateLogger<MqttClient>();
-var client = new MqttClient(new MqttClientOptionsBuilder()
+var options = new MqttClientOptionsBuilder()
         .WithConnectionUri("mqtt://localhost")
         .WithCredentials("user", "password")
         .WithCleanStart()
@@ -43,7 +41,16 @@ var client = new MqttClient(new MqttClientOptionsBuilder()
         .WithWillPayload("will message")
         .WithWillQos(MqttQos.ExactlyOnce)
         .WithWillUserProperty("name", "value 3")
-        .Build(), logger);
+        .Build();
+
+//var loggerFactory = LoggerFactory.Create(x => x.AddConsole());
+//var logger = loggerFactory.CreateLogger<MqttClient>();
+//var client = new MqttClient(options, logger);
+
+var services = new ServiceCollection();
+services.AddMqttClient(options).AddLogging(x => x.AddConsole());
+var serviceProvider = services.BuildServiceProvider();
+var client = serviceProvider.GetService<MqttClient>();
 
 var i = 0;
 
@@ -121,7 +128,7 @@ Console.WriteLine(result.ReasonCode);
 Console.ReadKey();
 ```
 
-## Reference
+## References
 -----------
 [OASIS](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
