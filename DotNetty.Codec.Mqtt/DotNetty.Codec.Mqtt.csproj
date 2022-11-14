@@ -6,16 +6,16 @@
 		<Nullable>disable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Description>MQTT-v5.0 codec for DotNetty</Description>
-		<Copyright>@2022 Taoxu</Copyright>
-		<PackageProjectUrl>https://github.com/webos-plus/DotNetty.MqttClient</PackageProjectUrl>
-		<Authors>Taoxu</Authors>
-		<RepositoryUrl>https://github.com/webos-plus/DotNetty.MqttClient</RepositoryUrl>
+		<Copyright>©2022 Microkeep</Copyright>
+		<PackageProjectUrl>https://github.com/Microkeep/DotNetty.MqttClient</PackageProjectUrl>
+		<Authors>Microkeep</Authors>
+		<RepositoryUrl>https://github.com/Microkeep/DotNetty.MqttClient</RepositoryUrl>
 		<PackageTags>socket tcp protocol netty dotnetty network mqtt 5.0 codec</PackageTags>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DotNetty.Codecs" Version="0.7.2" />
+		<PackageReference Include="DotNetty.Codecs" Version="0.7.5" />
 	</ItemGroup>
 
 </Project>

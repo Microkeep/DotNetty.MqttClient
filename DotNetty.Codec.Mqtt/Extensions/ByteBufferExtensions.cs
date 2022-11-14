@@ -9,9 +9,9 @@ internal static class ByteBufferExtensions
 {
     public static void WriteString(this IByteBuffer buffer, string value)
     {
-        var stringBytes = Encoding.UTF8.GetBytes(value);
-        buffer.WriteUnsignedShort((ushort)stringBytes.Length);
-        buffer.WriteBytes(stringBytes);
+        var bytes = Encoding.UTF8.GetBytes(value);
+        buffer.WriteUnsignedShort((ushort)bytes.Length);
+        buffer.WriteBytes(bytes);
     }
 
     public static void WriteBytesArray(this IByteBuffer buffer, byte[] value)
@@ -54,14 +54,14 @@ internal static class ByteBufferExtensions
 
     public static string ReadString(this IByteBuffer buffer, ref int remainingLength)
     {
-        var size = ReadUnsignedShort(buffer, ref remainingLength);
-        if (size == 0)
+        var length = ReadUnsignedShort(buffer, ref remainingLength);
+        if (length == 0)
             return string.Empty;
 
-        DecreaseRemainingLength(ref remainingLength, size);
+        DecreaseRemainingLength(ref remainingLength, length);
 
-        var value = buffer.ToString(buffer.ReaderIndex, size, Encoding.UTF8);
-        buffer.SetReaderIndex(buffer.ReaderIndex + size);
+        var value = buffer.ToString(buffer.ReaderIndex, length, Encoding.UTF8);
+        buffer.SetReaderIndex(buffer.ReaderIndex + length);
 
         return value;
     }
