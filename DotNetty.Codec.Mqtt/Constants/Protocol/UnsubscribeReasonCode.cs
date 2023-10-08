@@ -1,6 +1,5 @@
 ﻿namespace DotNetty.Codec.Mqtt;
 
-[Flags]
 public enum UnsubscribeReasonCode : byte
 {
     Success = 0,

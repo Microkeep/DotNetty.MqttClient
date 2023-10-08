@@ -1,6 +1,5 @@
 ﻿namespace DotNetty.Codec.Mqtt;
 
-[Flags]
 public enum PacketType : byte
 {
     CONNECT = 1,

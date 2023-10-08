@@ -1,6 +1,5 @@
 ﻿namespace DotNetty.Codec.Mqtt;
 
-[Flags]
 public enum DisconnectReasonCode : byte
 {
     NormalDisconnection = 0,
