@@ -2,6 +2,7 @@
 using DotNetty.Codecs;
 using DotNetty.Codec.Mqtt.Packets;
 using DotNetty.Transport.Channels;
+using System.ComponentModel;
 
 namespace DotNetty.Codec.Mqtt;
 
@@ -40,7 +41,7 @@ public sealed class MqttDecoder : ReplayingDecoder<MqttDecoder.ParseState>
                     input.SkipBytes(input.ReadableBytes);
                     return;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new InvalidEnumArgumentException();
             }
         }
         catch (DecoderException ex)
