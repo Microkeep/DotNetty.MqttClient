@@ -1,6 +1,5 @@
 ﻿namespace DotNetty.Codec.Mqtt;
 
-[Flags]
 public enum ConnectReasonCode : byte
 {
     Success = 0,

@@ -1,6 +1,5 @@
 ﻿namespace DotNetty.Codec.Mqtt;
 
-[Flags]
 public enum MqttQos : byte
 {
     AtMostOnce = 0x00,

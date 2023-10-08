@@ -42,7 +42,7 @@ public struct FixedHeader
         return true;
     }
 
-    bool TryDecodeRemainingLength(IByteBuffer buffer, out int value)
+    static bool TryDecodeRemainingLength(IByteBuffer buffer, out int value)
     {
         var readable = buffer.ReadableBytes;
 
