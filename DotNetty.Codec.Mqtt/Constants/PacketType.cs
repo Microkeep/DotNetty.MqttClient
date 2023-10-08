@@ -2,6 +2,7 @@
 
 public enum PacketType : byte
 {
+    InvalidType = 0,
     CONNECT = 1,
     CONNACK = 2,
     PUBLISH = 3,
