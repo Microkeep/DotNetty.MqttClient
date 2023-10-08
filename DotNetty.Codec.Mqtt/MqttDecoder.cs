@@ -27,7 +27,7 @@ public sealed class MqttDecoder : ReplayingDecoder<MqttDecoder.ParseState>
             switch (State)
             {
                 case ParseState.Ready:
-                    if (!TryDecodePacket(context, input, out Packet packet))
+                    if (!TryDecodePacket(input, out Packet packet))
                     {
                         RequestReplay();
                         return;
@@ -53,7 +53,7 @@ public sealed class MqttDecoder : ReplayingDecoder<MqttDecoder.ParseState>
         }
     }
 
-    private bool TryDecodePacket(IChannelHandlerContext context, IByteBuffer buffer, out Packet packet)
+    private bool TryDecodePacket(IByteBuffer buffer, out Packet packet)
     {
         try
         {
