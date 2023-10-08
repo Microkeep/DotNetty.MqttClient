@@ -7,7 +7,24 @@ namespace DotNetty.Codec.Mqtt;
 
 public sealed class MqttEncoder : MessageToMessageEncoder<Packet>
 {
-    public static MqttEncoder Instance(uint maximumPacketSize) => new MqttEncoder(maximumPacketSize);
+    private static readonly Dictionary<uint, MqttEncoder> s_instanceDict = new();
+    private static readonly object s_locker = new();
+
+    public static MqttEncoder GetInstance(uint maximumPacketSize)
+    {
+        if (!s_instanceDict.TryGetValue(maximumPacketSize, out MqttEncoder value))
+        {
+            lock (s_locker)
+            {
+                if (!s_instanceDict.TryGetValue(maximumPacketSize, out value))
+                {
+                    value = new MqttEncoder(maximumPacketSize);
+                    s_instanceDict.Add(maximumPacketSize, value);
+                }
+            }
+        }
+        return value;
+    }
 
     private readonly uint _maximumPacketSize;
     public override bool IsSharable => true;
