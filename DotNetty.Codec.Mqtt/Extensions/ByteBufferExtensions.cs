@@ -120,7 +120,7 @@ internal static class ByteBufferExtensions
     {
         var length = ReadUnsignedShort(buffer, ref remainingLength);
         if (length == 0)
-            return new byte[0];
+            return Array.Empty<byte>();
 
         DecreaseRemainingLength(ref remainingLength, length);
         return buffer.ReadBytes(length).Array;
